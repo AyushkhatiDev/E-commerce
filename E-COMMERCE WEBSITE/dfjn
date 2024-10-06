@@ -1,0 +1,35 @@
+[33mcommit d3d11070859df3d9673dd7dc47987009031d1a95[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: Ayush Khati <ayushiskhati@email.com>
+Date:   Sun Oct 6 22:59:33 2024 +0530
+
+    Updated image files and script.js
+
+[33mcommit 7b3d0746d978e58e44b44c208279c75f38dfb7d5[m
+Author: Ayush Khati <ayushiskhati@email.com>
+Date:   Sun Oct 6 22:55:55 2024 +0530
+
+    Track large files with Git LFS
+
+[33mcommit 7bec62c3baef1ae2802fc93887cb384526cd38f6[m
+Author: Ayush Khati <ayushiskhati@email.com>
+Date:   Sun Oct 6 22:52:45 2024 +0530
+
+    Initial commit with e-commerce website structure and design updates
+
+[33mcommit 4d9130a22a4a38e68e774537c44cd36bb62cd2cf[m
+Author: Ayush Khati <ayushiskhati@email.com>
+Date:   Sun Oct 6 01:41:47 2024 +0530
+
+    Remove large file exceeding GitHub limit
+
+[33mcommit b6453d72a707b78425db94dee8c6bf87dd85aaf5[m
+Author: Ayush Khati <ayushiskhati@email.com>
+Date:   Sun Oct 6 01:36:05 2024 +0530
+
+    Track large executable files with Git LFS
+
+[33mcommit fde630cb71a0104c51763a92cbdaa64b65328db6[m
+Author: Ayush Khati <ayushiskhati@email.com>
+Date:   Sun Oct 6 01:23:20 2024 +0530
+
+    Initial commit

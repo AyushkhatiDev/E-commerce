@@ -1,0 +1,299 @@
+:root {
+    --black-olive: #3B3C36;
+    --ebony: #555D50;
+    --chestnut: #954535;
+    --pale-silver: #C9C0BB;
+    --white: #FFFFFF;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --shadow-sm: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    --shadow-md: 0 4px 30px -1px rgb(0 0 0 / 0.15);
+    --navbar-bg: rgba(59, 60, 54, 0.7); 
+    --glass-blur: blur(10px);
+}
+
+.navbar {
+    background-color: var(--navbar-bg);
+    height: 60px;
+    margin: 10px 20px;
+    border-radius: 12px;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: var(--shadow-md);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    transition: var(--transition);
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    
+}
+
+.navbar.scrolled {
+    margin: 0;
+    border-radius: 0;
+    background-color: rgba(59, 60, 54, 0.85);
+    box-shadow: var(--shadow-sm);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    color: var(--pale-silver);
+    font-size: 1.25rem;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.navbar-logo {
+    height: 40px;
+    width: auto;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.navbar-brand:hover .navbar-logo {
+    transform: rotate(360deg) scale(1.1);
+}
+
+.nav-link {
+    color: var(--pale-silver);
+    font-weight: 500;
+    padding: 0.5rem 0.75rem;
+    text-decoration: none;
+    transition: var(--transition);
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.9rem;
+    letter-spacing: 0.3px;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--white);
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: var(--chestnut);
+    transition: width 0.3s ease;
+    border-radius: 2px;
+}
+
+.nav-link:hover::before,
+.nav-link.active::before {
+    width: 70%;
+}
+
+.dropdown-toggle::after {
+    display: none;
+}
+
+.mega-menu {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    padding: 30px 0;
+    background-color: var(--navbar-bg);
+    box-shadow: var(--shadow-md);
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+    transform: translateY(10px);
+}
+
+.dropdown:hover .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.mega-menu-heading {
+    color: var(--chestnut);
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.mega-menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.mega-menu ul li a {
+    color: var(--pale-silver);
+    text-decoration: none;
+    transition: var(--transition);
+    display: block;
+    padding: 5px 0;
+}
+
+.mega-menu ul li a:hover {
+    color: var(--white);
+    transform: translateX(5px);
+}
+
+.navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.search-wrapper {
+    position: relative;
+    width: 200px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 8px 35px 8px 15px;
+    border-radius: 20px;
+    border: 2px solid var(--pale-silver);
+    background: rgba(201, 192, 187, 0.2);
+    color: var(--pale-silver);
+    transition: var(--transition);
+    font-size: 0.85rem;
+}
+
+.search-input::placeholder {
+    color: var(--pale-silver);
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--chestnut);
+    background: rgba(201, 192, 187, 0.3);
+    box-shadow: 0 0 0 3px rgba(149, 69, 53, 0.1);
+}
+
+.search-button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--pale-silver);
+    cursor: pointer;
+    transition: var(--transition);
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.search-button:hover {
+    color: var(--white);
+}
+
+.cart-wrapper {
+    position: relative;
+}
+
+.cart-button {
+    background: none;
+    border: none;
+    padding: 6px;
+    cursor: pointer;
+    position: relative;
+    transition: var(--transition);
+    color: var(--pale-silver);
+}
+
+.cart-count {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background: var(--chestnut);
+    color: var(--white);
+    font-size: 0.7rem;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.cart-button:hover {
+    color: var(--white);
+}
+
+.cart-button:hover .cart-count {
+    transform: scale(1.2);
+}
+
+.login-button {
+    background: linear-gradient(45deg, var(--chestnut), var(--ebony));
+    color: var(--white);
+    padding: 8px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+}
+
+.login-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(149, 69, 53, 0.3);
+}
+
+@media (max-width: 991px) {
+    .navbar {
+        margin: 0;
+        border-radius: 0;
+        padding: 0 1rem;
+        background-color: rgba(59, 60, 54, 0.9);
+    }
+
+    .navbar-nav, .navbar-actions {
+        display: none;
+    }
+
+    .mega-menu {
+        position: static;
+        box-shadow: none;
+        padding: 0;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+    }
+
+    .offcanvas {
+        background-color: rgba(59, 60, 54, 0.95);
+        backdrop-filter: var(--glass-blur);
+        -webkit-backdrop-filter: var(--glass-blur);
+    }
+
+    .offcanvas .navbar-nav,
+    .offcanvas .navbar-actions {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .search-wrapper {
+        width: 100%;
+    }
+
+    .mega-menu ul li a:hover {
+        transform: none;
+    }
+}

@@ -1,0 +1,110 @@
+:root {
+    --pale-silver: #C9C0BB;
+    --white: #FFFFFF;
+    --black-olive: #3B3C36;
+  }
+
+.categories-section {
+    background-color: var(--pale-silver);
+    padding: 100px 0;
+    position: relative;
+    z-index: 1;
+  }
+
+.category-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    margin-bottom: 30px;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.category-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.category-image img {
+    transition: transform 0.5s ease;
+    width: 100%;
+    height: auto;
+}
+
+.category-card:hover .category-image img {
+    transform: scale(1.1);
+}
+
+.category-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(59, 60, 54, 0.8);
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.category-card:hover .category-overlay {
+    opacity: 1;
+}
+
+.category-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.category-description {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    transform: translateY(20px);
+    transition: transform 0.3s ease 0.1s;
+}
+
+.category-card:hover .category-title,
+.category-card:hover .category-description {
+    transform: translateY(0);
+}
+
+.category-overlay .btn {
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.3s ease 0.2s;
+}
+
+.category-card:hover .category-overlay .btn {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.btn-outline-light {
+    border-color: var(--white);
+    color: var(--white);
+}
+
+.btn-outline-light:hover {
+    background-color: var(--white);
+    color: var(--black-olive);
+}
+
+@media (max-width: 767px) {
+    .category-card {
+        margin-bottom: 30px;
+    }
+}

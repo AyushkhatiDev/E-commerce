@@ -1,0 +1,272 @@
+:root {
+    --chestnut: #954535;
+    --pale-gold: #C0B283;
+    --sage: #87A878;
+    --cream: #F4F4F4;
+    --deep-brown: #3D2B1F;
+    --light-sage: #D1E2C4;
+}
+
+.featured-section {
+    background-color: var(--cream);
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.featured-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('images/8.png/ayurvedicBG.jpg') repeat;
+    opacity: 0.05;
+    z-index: 0;
+}
+
+.section-title {
+    color: var(--deep-brown);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 50px;
+    position: relative;
+    z-index: 1;
+}
+
+.section-title::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--chestnut);
+}
+
+.product-card {
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    z-index: 1;
+}
+
+.product-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.product-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.product-image img {
+    transition: transform 0.5s ease-in-out;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.1);
+}
+
+.product-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: var(--pale-gold);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.product-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.product-card:hover .product-overlay {
+    opacity: 1;
+}
+
+.quick-view {
+    transform: translateY(20px);
+    transition: all 0.3s ease-in-out;
+}
+
+.product-card:hover .quick-view {
+    transform: translateY(0);
+}
+
+.product-info {
+    padding: 20px;
+    background-color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+.product-title {
+    font-size: 1.2rem;
+    color: var(--deep-brown);
+    margin-bottom: 10px;
+    transition: color 0.3s ease-in-out;
+}
+
+.product-card:hover .product-title {
+    color: var(--chestnut);
+}
+
+.product-price {
+    font-size: 1.3rem;
+    color: var(--chestnut);
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.product-rating {
+    color: var(--pale-gold);
+    margin-bottom: 15px;
+}
+
+.product-rating i {
+    margin-right: 2px;
+}
+
+.product-rating span {
+    color: var(--deep-brown);
+    font-size: 0.9rem;
+}
+
+.buy-now-btn {
+    background-color: var(--sage);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.buy-now-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,255,0.2);
+    transition: all 0.3s ease;
+}
+
+.buy-now-btn:hover::before {
+    left: 100%;
+}
+
+.buy-now-btn:hover {
+    background-color: var(--chestnut);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.product-card {
+    animation: float 6s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+    .product-card {
+        margin-bottom: 30px;
+    }
+}
+
+/* Add a natural, leafy decoration */
+.featured-section::after {
+    content: "";
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: url('path/to/ayurvedic-leaf.png') no-repeat;
+    background-size: contain;
+    opacity: 0.1;
+    z-index: 0;
+    animation: sway 10s ease-in-out infinite;
+}
+
+@keyframes sway {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(5deg); }
+}
+
+.modal-content {
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.modal-header {
+    background-color: var(--pale-gold);
+    color: white;
+}
+
+.modal-body {
+    padding: 30px;
+}
+
+#modalProductTitle {
+    color: var(--deep-brown);
+    margin-bottom: 10px;
+}
+
+#modalProductPrice {
+    font-size: 1.5rem;
+    color: var(--chestnut);
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#modalProductRating {
+    color: var(--pale-gold);
+    margin-bottom: 15px;
+}
+
+#modalProductDescription {
+    color: var(--deep-brown);
+    margin-bottom: 20px;
+}
+
+#modalAddToCart {
+    background-color: var(--sage);
+    border: none;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+}
+
+#modalAddToCart:hover {
+    background-color: var(--chestnut);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}

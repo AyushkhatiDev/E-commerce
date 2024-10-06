@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="5 ELM - Your premium Ayurvedic products destination for holistic wellness.">
+    <title>5 ELM - Premium Ayurvedic E-Commerce</title>
+    <!-- Font Awesome Latest Version -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- AOS Animation CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <!-- Custom CSS Files -->
+    <link href="/css/navbar.css" rel="stylesheet">
+    <link href="/css/about.css" rel="stylesheet">
+    <link href="css/hero.css" rel="stylesheet">
+    <link href="css/footer.css" rel="stylesheet">
+    <link href="css/products.css" rel="stylesheet">
+    <link href="css/categories.css" rel="stylesheet">
+    <link href="/css/features.css" rel="stylesheet">
+    <link href="/css/megamenu.css" rel="stylesheet">
+    <link href="/css/hamburger.css" rel="stylesheet">
+</head>
+<body>    
+    <!-- Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="images/logo.jpg" alt="5 ELM Logo" class="navbar-logo">
+            <span class="navbar-brand-text">5 ELM</span>
+        </a>
+        <button class="hamburger d-lg-none" type="button" aria-label="Menu" aria-expanded="false" data-bs-toggle="collapse" data-bs-target="#navbarMegaMenu">
+            <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+            </span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMegaMenu">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="megaMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Products
+                    </a>
+                    <div class="dropdown-menu mega-menu" aria-labelledby="megaMenuLink">
+                        <!-- Mega menu content (unchanged) -->
+                    </div>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
+            <div class="navbar-actions">
+                <div class="search-wrapper">
+                    <input type="text" class="search-input" placeholder="Search..." aria-label="Search">
+                    <button class="search-button" aria-label="Submit search"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="cart-wrapper">
+                    <button class="cart-button" aria-label="Shopping cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </button>
+                </div>
+                <a href="#" class="login-button">
+                    <i class="fas fa-user"></i>
+                    <span>Login</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="animate-slide">Welcome to 5 ELM</span>
+            </h1>
+            <h2 class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">Discover Authentic Ayurvedic Wellness</h2>
+            <div class="hero-cta" data-aos="fade-up" data-aos-delay="400">
+                <a href="#shop" class="hero-button primary-button">Shop Now</a>
+                <a href="#about" class="hero-button secondary-button">Learn More</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse"></div>
+        </div>
+    </section>
+
+    <section id="features-showcase" class="features-showcase py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5" data-aos="fade-up">Discover Our Ayurvedic Excellence</h2>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="feature-icon">
+                        <i class="fas fa-leaf chestnut-icon"></i>
+                    </div>
+                    <h3>Natural Ingredients</h3>
+                    <p>Sourced from the purest origins for optimal benefits.</p>
+                </div>
+                <div class="feature-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="feature-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3>Scientific Formulation</h3>
+                    <p>Blending ancient wisdom with modern research.</p>
+                </div>
+                <div class="feature-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="feature-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>Holistic Approach</h3>
+                    <p>Balancing mind, body, and spirit for total wellness.</p>
+                </div>
+                <div class="feature-card" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="feature-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Customer Satisfaction</h3>
+                    <p>Committed to your health and happiness.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  <!-- About Section -->
+<section id="about" class="about-section py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-5 mb-lg-0">
+                <div class="about-image-container">
+                    <img src="images/8.png/8.png" alt="About 5ELM Ayurveda" class="img-fluid rounded shadow-lg">
+                    <div class="floating-shape shape-1"></div>
+                    <div class="floating-shape shape-2"></div>
+                    <div class="floating-shape shape-3"></div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <h2 class="section-title mb-4">Discover the 5ELM Ayurvedic Experience</h2>
+                <p class="lead mb-4 animated-text">Immerse yourself in the world of authentic Ayurvedic wellness with 5ELM, where ancient wisdom meets modern holistic solutions.</p>
+                <div class="about-features">
+                    <div class="feature-item mb-4">
+                        <i class="fas fa-leaf chestnut-icon me-3"></i>
+                        <span>Curated collection of premium Ayurvedic products</span>
+                    </div>
+                    <div class="feature-item mb-4">
+                        <i class="fas fa-shipping-fast chestnut-icon me-3"></i>
+                        <span>Swift and secure delivery of herbal remedies</span>
+                    </div>
+                    <div class="feature-item mb-4">
+                        <i class="fas fa-sync-alt chestnut-icon me-3"></i>
+                        <span>100% satisfaction guarantee on all products</span>
+                    </div>
+                    <div class="feature-item mb-4">
+                        <i class="fas fa-user-md chestnut-icon me-3"></i>
+                        <span>Expert Ayurvedic consultation available</span>
+                    </div>
+                </div>
+                <div class="cta-container mt-5">
+                    <a href="#" class="btn btn-primary btn-lg me-3 learn-more-btn">Explore Our Heritage</a>
+                    <a href="#" class="btn btn-outline-primary btn-lg shop-now-btn">Shop Ayurvedic Products</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-12">
+                <h3 class="text-center mb-4">Our Ayurvedic Collections</h3>
+                <div class="image-gallery">
+                    <div class="gallery-item">
+                        <img src="images/8.png/herbal.jpg.webp" alt="Herbal Supplements" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-text">Herbal Supplements</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/8.png/skin.webp" alt="Ayurvedic Skincare" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-text">Ayurvedic Skincare</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/8.png/Tea.webp" alt="Wellness Teas" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-text">Wellness Teas</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/8.png/oil.webp" alt="Essential Oils" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-text">Essential Oils</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/8.png/hair.webp" alt="Ayurvedic Hair Care" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-text">Ayurvedic Hair Care</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/8.png/Moil.webp" alt="Massage Oils" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-text">Massage Oils</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    
+    <!-- Timeline Section -->
+    <section id="timeline" class="timeline-section py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5" data-aos="fade-up">Our Ayurvedic Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-content">
+                        <h3>2015</h3>
+                        <p>5ELM was founded with a vision to bring authentic Ayurvedic products to modern consumers.</p>
+                        <div class="timeline-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-content">
+                        <h3>2018</h3>
+                        <p>Expanded our collection to include rare herbs and formulations from across India.</p>
+                        <div class="timeline-icon">
+                            <i class="fas fa-mortar-pestle"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-content">
+                        <h3>2020</h3>
+                        <p>Launched our mobile app for personalized Ayurvedic consultations and product recommendations.</p>
+                        <div class="timeline-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-content">
+                        <h3>2024</h3>
+                        <p>Celebrating our global presence, bringing Ayurvedic wellness to over 50 countries.</p>
+                        <div class="timeline-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section id="featured" class="featured-section py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5" data-aos="fade-up">Featured Ayurvedic Products</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="images/8.png/cream (2).jpg" alt="Ayurvedic Face Cream" class="img-fluid">
+                            <div class="product-tag">New</div>
+                            <div class="product-overlay">
+                                <a href="#" class="btn btn-outline-light quick-view">Quick View</a>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Ayurvedic Face Cream</h3>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(4.5)</span>
+                            </div>
+                            <p class="product-price">$29.99</p>
+                            <button class="btn btn-primary buy-now-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Repeat this structure for more products -->
+                 
+            </div>
+        </div>
+    </section>
+    <div class="modal fade" id="quickViewModal" tabindex="-1" aria-labelledby="quickViewModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="quickViewModalLabel">Product Quick View</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="" alt="Product Image" class="img-fluid" id="modalProductImage">
+                        </div>
+                        <div class="col-md-6">
+                            <h2 id="modalProductTitle"></h2>
+                            <p id="modalProductPrice"></p>
+                            <div id="modalProductRating"></div>
+                            <p id="modalProductDescription"></p>
+                            <button class="btn btn-primary" id="modalAddToCart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Categories Section -->
+     
+    <section id="categories" class="categories-section py-5" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title text-center mb-5" data-aos="fade-up">Shop by Ayurvedic Category</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
+                    <div class="category-card">
+                        <div class="category-image">
+                            <img src="images/8.png/supplements.jpg" alt="Herbal Supplements" class="img-fluid">
+                        </div>
+                        <div class="category-overlay">
+                            <h3 class="category-title">Herbal Supplements</h3>
+                            <p class="category-description">Boost your health with our range of traditional Ayurvedic supplements.</p>
+                            <a href="#" class="btn btn-outline-light">Explore Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="category-card">
+                        <div class="category-image">
+                            <img src="images/8.png/skincare.jpg" alt="Ayurvedic Skincare" class="img-fluid">
+                        </div>
+                        <div class="category-overlay">
+                            <h3 class="category-title">Ayurvedic Skincare</h3>
+                            <p class="category-description">Nourish your skin with our natural and effective Ayurvedic formulations.</p>
+                            <a href="#" class="btn btn-outline-light">Explore Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="category-card">
+                        <div class="category-image">
+                            <img src="images/8.png/tea2.jpg" alt="Wellness Teas" class="img-fluid">
+                        </div>
+                        <div class="category-overlay">
+                            <h3 class="category-title">Wellness Teas</h3>
+                            <p class="category-description">Discover our collection of healing and rejuvenating Ayurvedic teas.</p>
+                            <a href="#" class="btn btn-outline-light">Explore Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="category-card">
+                        <div class="category-image">
+                            <img src="https://via.placeholder.com/600x400" alt="Accessories" class="img-fluid">
+                        </div>
+                        <div class="category-overlay">
+                            <h3 class="category-title">Accessories</h3>
+                            <p class="category-description">Complete your look with our stunning range of accessories.</p>
+                            <a href="#" class="btn btn-outline-light">Explore Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+     <section id="testimonials" class="testimonials-section py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">What Our Customers Say</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"5ELM has completely transformed my shopping experience. The quality and style of their products are unmatched!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://via.placeholder.com/50" alt="Sarah J." class="rounded-circle">
+                            <h5>Sarah J.</h5>
+                            <small>Fashion Blogger</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"The customer service at 5ELM is exceptional. They go above and beyond to ensure customer satisfaction."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://via.placeholder.com/50" alt="Mark T." class="rounded-circle">
+                            <h5>Mark T.</h5>
+                            <small>Loyal Customer</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"I love the curated collections at 5ELM. It's like having a personal stylist at my fingertips!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://via.placeholder.com/50" alt="Emily R." class="rounded-circle">
+                            <h5>Emily R.</h5>
+                            <small>Style Enthusiast</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="products-section py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5" data-aos="fade-up">Our Ayurvedic Products</h2>
+            <div class="row">
+                <!-- Product 1 -->
+                <div class="col-md-3 col-sm-6 mb-4" data-aos="fade-up">
+                    <div class="product-card" data-aos="new-product">
+                        <div class="product-image">
+                            <img src="images/8.png/cbdoil.jpg" alt="Ayurvedic Hair Oil" class="img-fluid">
+                            <div class="product-tag">New</div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Herbal Hair Oil</h3>
+                            <p class="product-price">$24.99</p>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(4.5)</span>
+                            </div>
+                            <button class="btn buy-now-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Product 2 -->
+                <div class="col-md-3 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="images/8.png/cream.jpg" alt="Ayurvedic Face Cream" class="img-fluid">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Herbal Face Cream</h3>
+                            <p class="product-price">$19.99</p>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>(4.0)</span>
+                            </div>
+                            <button class="btn buy-now-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Product 3 -->
+                <div class="col-md-3 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="images/8.png/detox tea.webp" alt="Ayurvedic Tea" class="img-fluid">
+                            <div class="product-tag">Best Seller</div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Herbal Detox Tea</h3>
+                            <p class="product-price">$14.99</p>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(5.0)</span>
+                            </div>
+                            <button class="btn buy-now-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Product 4 -->
+                <div class="col-md-3 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="images/8.png/capsules.webp" alt="Ayurvedic Supplement" class="img-fluid">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Ashwagandha Capsules</h3>
+                            <p class="product-price">$29.99</p>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(4.7)</span>
+                            </div>
+                            <button class="btn buy-now-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- You can add more rows of products as needed -->
+    
+            <div class="text-center mt-5">
+                <a href="#" class="btn btn-lg btn-outline-primary">View All Products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Get in Touch</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <form>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+                <div class="col-md-6">
+                    <h4>Contact Information</h4>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> 123 Fashion Street, New York, NY 10001</p>
+                    <p><i class="fas fa-phone me-2"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-envelope me-2"></i> info@5elm.com</p>
+                    <div class="social-icons mt-4">
+                        <a href="#" class="me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h5 class="mb-3 footer-heading">5 ELM</h5>
+                    <p class="small">Your premium fashion destination for all your e-commerce needs.</p>
+                    <div class="social-icons mt-3">
+                        <a href="#" class="me-2"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="me-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="me-2"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h5 class="mb-3 footer-heading">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home" class="footer-link">Home</a></li>
+                        <li><a href="#featured" class="footer-link">Featured</a></li>
+                        <li><a href="#categories" class="footer-link">Categories</a></li>
+                        <li><a href="#new-arrivals" class="footer-link">New Arrivals</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h5 class="mb-3 footer-heading">Customer Service</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="footer-link">Contact Us</a></li>
+                        <li><a href="#" class="footer-link">FAQ</a></li>
+                        <li><a href="#" class="footer-link">Shipping & Returns</a></li>
+                        <li><a href="#" class="footer-link">Size Guide</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="mb-3 footer-heading">Newsletter</h5>
+                    <p class="small">Subscribe to receive updates, access to exclusive deals, and more.</p>
+                    <form class="mt-3">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Enter your email" aria-label="Enter your email" aria-describedby="newsletter-submit">
+                            <button class="btn btn-primary" type="submit" id="newsletter-submit">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col text-center">
+                    <small class="text-muted">&copy; 2024 5ELM. All rights reserved.</small>
+                </div>
+            </div>
+        </div>
+    </footer> 
+    <!-- Scroll to Top Button -->
+    <div class="scroll-to-top">↑</div>
+
+    <!-- JS Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+    <!-- Custom JS -->
+    <script src="/js/script.js"></script>
+</body>
+</html>

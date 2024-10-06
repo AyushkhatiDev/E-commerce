@@ -1,0 +1,67 @@
+/* Mega Menu Container */
+.dropdown-menu.mega-menu {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background-color: var(--navbar-bg);
+    padding: 20px 0;
+    box-shadow: var(--shadow-lg);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(-10px);
+    z-index: 1000;
+}
+
+/* Show the dropdown when active */
+.dropdown.show .dropdown-menu.mega-menu {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Mega Menu Headings */
+.mega-menu-heading {
+    font-weight: bold;
+    color: var(--pale-silver);
+    margin-bottom: 10px;
+}
+
+/* List Items */
+.list-unstyled li {
+    margin-bottom: 5px;
+}
+
+/* Links in the Mega Menu */
+.list-unstyled li a {
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect for links */
+.list-unstyled li a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+/* Featured Product Section */
+.mega-menu img {
+    transition: transform 0.3s ease;
+}
+
+/* Scale effect for featured product image */
+.mega-menu img:hover {
+    transform: scale(1.05);
+}
+
+/* Button Styles */
+.btn-outline-primary {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Button hover effects */
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
