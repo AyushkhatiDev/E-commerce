@@ -94,3 +94,30 @@
         margin-bottom: 30px;
     }
 }
+
+#scrollToTopBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: rgba(149, 69, 53, 0.7);  /* Using your chestnut color with some transparency */
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 18px;
+    transition: opacity 0.3s, visibility 0.3s, background-color 0.3s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+#scrollToTopBtn:hover {
+    background-color: rgba(149, 69, 53, 1);  /* Solid color on hover */
+}
+
+#scrollToTopBtn.visible {
+    opacity: 1;
+    visibility: visible;
+}
