@@ -214,3 +214,24 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+    
+    // Show/hide the button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {  // Show button after 300px of scrolling
+            scrollToTopBtn.classList.add('visible');
+        } else {
+            scrollToTopBtn.classList.remove('visible');
+        }
+    });
+
+    // Scroll to top when button is clicked
+    scrollToTopBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'  // For smooth scrolling
+        });
+    });
+});
