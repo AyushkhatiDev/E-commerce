@@ -235,3 +235,49 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.querySelector('.search-input');
+    const voiceSearchButton = document.querySelector('.voice-search-button');
+
+    // Check if browser supports speech recognition
+    if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        const recognition = new SpeechRecognition();
+
+        recognition.lang = 'en-US';
+        recognition.interimResults = false;
+        recognition.maxAlternatives = 1;
+
+        voiceSearchButton.addEventListener('click', function() {
+            recognition.start();
+            voiceSearchButton.classList.add('listening');
+        });
+
+        recognition.addEventListener('result', function(e) {
+            const transcript = e.results[0][0].transcript;
+            searchInput.value = transcript;
+            voiceSearchButton.classList.remove('listening');
+            // Optionally, you can trigger the search here
+            // performSearch(transcript);
+        });
+
+        recognition.addEventListener('end', function() {
+            voiceSearchButton.classList.remove('listening');
+        });
+
+        recognition.addEventListener('error', function(e) {
+            console.error('Speech recognition error', e);
+            voiceSearchButton.classList.remove('listening');
+        });
+    } else {
+        voiceSearchButton.style.display = 'none';
+        console.log('Speech recognition not supported');
+    }
+});
+
+// Function to perform the search (you'll need to implement this based on your search requirements)
+function performSearch(query) {
+    console.log('Searching for:', query);
+    // Implement your search logic here
+}

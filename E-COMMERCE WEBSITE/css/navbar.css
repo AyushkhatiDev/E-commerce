@@ -297,3 +297,78 @@
         transform: none;
     }
 }
+
+/* Existing styles */
+.search-wrapper {
+    position: relative;
+    width: 200px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 8px 70px 8px 15px; /* Increased right padding to accommodate both buttons */
+    border-radius: 20px;
+    border: 2px solid var(--pale-silver);
+    background: rgba(201, 192, 187, 0.2);
+    color: var(--pale-silver);
+    transition: var(--transition);
+    font-size: 0.85rem;
+}
+
+.search-input::placeholder {
+    color: var(--pale-silver);
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--chestnut);
+    background: rgba(201, 192, 187, 0.3);
+    box-shadow: 0 0 0 3px rgba(149, 69, 53, 0.1);
+}
+
+/* Updated styles for both search and voice buttons */
+.search-button,
+.voice-search-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--pale-silver);
+    cursor: pointer;
+    transition: var(--transition);
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.search-button {
+    right: 40px; /* Moved to make room for voice button */
+}
+
+.voice-search-button {
+    right: 10px;
+}
+
+.search-button:hover,
+.voice-search-button:hover {
+    color: var(--white);
+}
+
+/* New styles for voice search button */
+.voice-search-button.listening {
+    color: var(--chestnut);
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: translateY(-50%) scale(1);
+    }
+    50% {
+        transform: translateY(-50%) scale(1.1);
+    }
+    100% {
+        transform: translateY(-50%) scale(1);
+    }
+}
