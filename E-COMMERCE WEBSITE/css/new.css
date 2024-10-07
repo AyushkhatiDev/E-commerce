@@ -1,0 +1,227 @@
+/* Virtual Consultation Scheduler Styles */
+.virtual-consultation-section {
+    background-color: #f9f9f9;
+    padding: 60px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.virtual-consultation-section::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 100px;
+    height: 100px;
+    background-color: rgba(76, 175, 80, 0.1);
+    border-radius: 50%;
+    animation: float 6s infinite ease-in-out;
+}
+
+.virtual-consultation-section::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    right: -30px;
+    width: 60px;
+    height: 60px;
+    background-color: rgba(76, 175, 80, 0.1);
+    border-radius: 50%;
+    animation: float 4s infinite ease-in-out;
+}
+
+@keyframes float {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(15px, -15px); }
+    100% { transform: translate(0, 0); }
+}
+
+.consultation-scheduler {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.consultation-scheduler:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.consultation-scheduler form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.consultation-scheduler .form-control {
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    padding: 12px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.consultation-scheduler .form-control:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+}
+
+.consultation-scheduler button[type="submit"] {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+.consultation-scheduler button[type="submit"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: all 0.6s;
+}
+
+.consultation-scheduler button[type="submit"]:hover::before {
+    left: 100%;
+}
+
+.consultation-scheduler button[type="submit"]:hover {
+    background-color: #45a049;
+    box-shadow: 0 5px 15px rgba(69, 160, 73, 0.4);
+}
+
+/* Sustainability Tracker Styles */
+.sustainability-section {
+    background-color: #f0f8f0;
+    padding: 60px 0;
+    position: relative;
+}
+
+.sustainability-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #4CAF50, #8BC34A, #4CAF50);
+    animation: gradientFlow 5s linear infinite;
+}
+
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+.sustainability-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.sustainability-item {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.sustainability-item::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #4CAF50, #8BC34A);
+    z-index: -1;
+    filter: blur(10px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.sustainability-item:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.sustainability-item:hover::before {
+    opacity: 1;
+}
+
+.sustainability-item i {
+    font-size: 48px;
+    color: #4CAF50;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.sustainability-item:hover i {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.sustainability-item h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.sustainability-item p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+}
+
+.percentage {
+    font-size: 36px;
+    font-weight: bold;
+    color: #4CAF50;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.sustainability-item:hover .percentage {
+    transform: scale(1.1);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.sustainability-item {
+    animation: fadeInUp 0.6s ease-out;
+    animation-fill-mode: both;
+}
+
+.sustainability-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.sustainability-item:nth-child(3) {
+    animation-delay: 0.4s;
+}

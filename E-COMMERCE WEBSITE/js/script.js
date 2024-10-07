@@ -281,3 +281,106 @@ function performSearch(query) {
     console.log('Searching for:', query);
     // Implement your search logic here
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Virtual Consultation Scheduler
+    const consultationForm = document.getElementById('consultation-form');
+    if (consultationForm) {
+        consultationForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            
+            // Simulating an API call
+            submitButton.textContent = 'Scheduling...';
+            submitButton.disabled = true;
+            
+            setTimeout(() => {
+                console.log(`Consultation scheduled for ${date} at ${time}`);
+                
+                // Show a success message
+                showNotification('Your consultation has been scheduled. We will confirm shortly.', 'success');
+                
+                // Reset the form
+                this.reset();
+                submitButton.textContent = 'Schedule Consultation';
+                submitButton.disabled = false;
+            }, 1500);
+        });
+
+        // Add smooth label animation
+        const formInputs = consultationForm.querySelectorAll('.form-control');
+        formInputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.classList.add('focused');
+            });
+            input.addEventListener('blur', () => {
+                if (input.value === '') {
+                    input.parentElement.classList.remove('focused');
+                }
+            });
+        });
+    }
+
+    // Sustainability Tracker
+    const percentages = document.querySelectorAll('.percentage');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                percentages.forEach(percentage => {
+                    const target = parseInt(percentage.getAttribute('data-target'));
+                    animateValue(percentage, 0, target, 2000);
+                });
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    const sustainabilitySection = document.querySelector('.sustainability-section');
+    if (sustainabilitySection) {
+        observer.observe(sustainabilitySection);
+    }
+
+    function animateValue(obj, start, end, duration) {
+        let startTimestamp = null;
+        const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            obj.innerHTML = Math.floor(progress * (end - start) + start);
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            }
+        };
+        window.requestAnimationFrame(step);
+    }
+
+    // Add hover effect to sustainability items
+    const sustainabilityItems = document.querySelectorAll('.sustainability-item');
+    sustainabilityItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            item.style.transform = 'translateY(-10px) scale(1.03)';
+        });
+        item.addEventListener('mouseleave', () => {
+            item.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+
+    // Notification function
+    function showNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.className = `notification ${type}`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.classList.add('show');
+        }, 100);
+
+        setTimeout(() => {
+            notification.classList.remove('show');
+            setTimeout(() => {
+                document.body.removeChild(notification);
+            }, 300);
+        }, 3000);
+    }
+});
