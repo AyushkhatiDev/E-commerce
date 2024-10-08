@@ -384,3 +384,86 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 3000);
     }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const loginForm = document.getElementById('loginForm');
+    const loginModal = document.getElementById('loginModal');
+    const formElements = loginForm.querySelectorAll('.form-control, .btn-primary, .form-check, a');
+    
+    loginModal.addEventListener('show.bs.modal', function () {
+        formElements.forEach((element, index) => {
+            element.classList.add('fade-in-up');
+            setTimeout(() => {
+                element.classList.add('active');
+            }, 100 * (index + 1));
+        });
+    });
+
+    loginModal.addEventListener('hidden.bs.modal', function () {
+        formElements.forEach(element => {
+            element.classList.remove('active');
+        });
+    });
+    
+    loginForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const email = document.getElementById('loginEmail').value;
+        const password = document.getElementById('loginPassword').value;
+        const rememberMe = document.getElementById('rememberMe').checked;
+        
+        // Simulate loading
+        const submitButton = this.querySelector('button[type="submit"]');
+        const originalText = submitButton.innerHTML;
+        submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Logging in...';
+        submitButton.disabled = true;
+        
+        // Simulate API call
+        setTimeout(() => {
+            console.log('Login attempt', { email, password, rememberMe });
+            
+            // Reset button
+            submitButton.innerHTML = originalText;
+            submitButton.disabled = false;
+            
+            // Show success message (you can replace this with your actual login logic)
+            showNotification('Login successful!', 'success');
+            
+            // Close the modal
+            const modalInstance = bootstrap.Modal.getInstance(loginModal);
+            modalInstance.hide();
+        }, 2000);
+    });
+
+    // Add floating label effect
+    const formControls = document.querySelectorAll('#loginModal .form-control');
+    formControls.forEach(control => {
+        control.addEventListener('focus', () => {
+            control.parentElement.classList.add('focused');
+        });
+        control.addEventListener('blur', () => {
+            if (control.value === '') {
+                control.parentElement.classList.remove('focused');
+            }
+        });
+    });
+});
+
+// Notification function
+function showNotification(message, type) {
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.textContent = message;
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.classList.add('show');
+    }, 100);
+
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => {
+            document.body.removeChild(notification);
+        }, 300);
+    }, 3000);
+}

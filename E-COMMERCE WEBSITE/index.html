@@ -21,6 +21,7 @@
     <link href="/css/features.css" rel="stylesheet">
     <link href="/css/megamenu.css" rel="stylesheet">
     <link href="/css/hamburger.css" rel="stylesheet">
+    <link href="/css/loginmodal.css" rel="stylesheet">
 </head>
 <body>    
     <!-- Navbar -->
@@ -61,11 +62,10 @@
                         <span class="cart-count">0</span>
                     </button>
                 </div>
-                <a href="#" class="login-button">
+                <a href="#" class="login-button" data-bs-toggle="modal" data-bs-target="#loginModal">
                     <i class="fas fa-user"></i>
                     <span>Login</span>
                 </a>
-            </div>
         </div>
     </div>
 </nav>
@@ -678,5 +678,41 @@
     </script>
     <!-- Custom JS -->
     <script src="/js/script.js"></script>
+    <!-- Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalLabel">Login to 5 ELM</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="loginForm">
+            <div class="mb-3">
+              <label for="loginEmail" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="loginEmail" required>
+            </div>
+            <div class="mb-3">
+              <label for="loginPassword" class="form-label">Password</label>
+              <input type="password" class="form-control" id="loginPassword" required>
+            </div>
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="rememberMe">
+              <label class="form-check-label" for="rememberMe">Remember me</label>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Login</button>
+          </form>
+          <div class="text-center mt-3">
+            <a href="#" class="text-decoration-none">Forgot password?</a>
+          </div>
+          <hr>
+          <div class="text-center">
+            <p class="mb-0">Don't have an account?</p>
+            <a href="#" class="btn btn-outline-secondary mt-2">Sign Up</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
