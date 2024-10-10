@@ -22,53 +22,56 @@
     <link href="/css/megamenu.css" rel="stylesheet">
     <link href="/css/hamburger.css" rel="stylesheet">
     <link href="/css/loginmodal.css" rel="stylesheet">
+    <link href="/css/srolltotopbutton.css" rel="stylesheet">
+    <link href="/css/cartpanel.css" rel="stylesheet">
 </head>
 <body>    
     <!-- Navbar -->
-<nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container">
-        <a class="navbar-brand" href="#">
-            <img src="images/logo.jpg" alt="5 ELM Logo" class="navbar-logo">
-            <span class="navbar-brand-text">5 ELM</span>
-        </a>
-        <button class="hamburger d-lg-none" type="button" aria-label="Menu" aria-expanded="false" data-bs-toggle="collapse" data-bs-target="#navbarMegaMenu">
-            <span class="hamburger-box">
-                <span class="hamburger-inner"></span>
-            </span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarMegaMenu">
-            <ul class="navbar-nav mx-auto">
-                <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="megaMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Products
-                    </a>
-                    <div class="dropdown-menu mega-menu" aria-labelledby="megaMenuLink">
-                        <!-- Mega menu content (unchanged) -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="images/logo.jpg" alt="5 ELM Logo" class="navbar-logo">
+                <span class="navbar-brand-text">5 ELM</span>
+            </a>
+            <button class="hamburger d-lg-none" type="button" aria-label="Menu" aria-expanded="false" data-bs-toggle="collapse" data-bs-target="#navbarMegaMenu">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarMegaMenu">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="megaMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Products
+                        </a>
+                        <div class="dropdown-menu mega-menu" aria-labelledby="megaMenuLink">
+                            <!-- Mega menu content (unchanged) -->
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+                <div class="navbar-actions">
+                    <div class="search-wrapper">
+                        <input type="text" class="search-input" placeholder="Search..." aria-label="Search">
+                        <button class="search-button" aria-label="Submit search"><i class="fas fa-search"></i></button>
+                        <button class="voice-search-button" aria-label="Voice search"><i class="fas fa-microphone"></i></button>
                     </div>
-                </li>
-                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-            </ul>
-            <div class="navbar-actions">
-                <div class="search-wrapper">
-                    <input type="text" class="search-input" placeholder="Search..." aria-label="Search">
-                    <button class="search-button" aria-label="Submit search"><i class="fas fa-search"></i></button>
-                    <button class="voice-search-button" aria-label="Voice search"><i class="fas fa-microphone"></i></button>
+                    <div class="cart-wrapper">
+                        <button id="cartButton" class="cart-button" aria-label="Shopping cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count">0</span>
+                        </button>
+                    </div>
+                    <a href="#" class="login-button" data-bs-toggle="modal" data-bs-target="#loginModal">
+                        <i class="fas fa-user"></i>
+                        <span>Login</span>
+                    </a>
                 </div>
-                <div class="cart-wrapper">
-                    <button class="cart-button" aria-label="Shopping cart">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span class="cart-count">0</span>
-                    </button>
-                </div>
-                <a href="#" class="login-button" data-bs-toggle="modal" data-bs-target="#loginModal">
-                    <i class="fas fa-user"></i>
-                    <span>Login</span>
-                </a>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
     <!-- Hero Section -->
     <section class="hero-section" id="home">
         <div class="hero-content">
@@ -318,6 +321,7 @@
             </div>
         </div>
     </section>
+    <!-- Login Modal-->
     <div class="modal fade" id="quickViewModal" tabindex="-1" aria-labelledby="quickViewModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -340,6 +344,21 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+      <!-- Sliding Cart Panel -->
+    <div id="cartPanel" class="cart-panel">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button id="closeCart" class="close-cart">&times;</button>
+        </div>
+        <div id="cartItems" class="cart-items">
+            <!-- Cart items will be dynamically added here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">Total: <span id="cartTotal">$0.00</span></div>
+            <button id="checkoutBtn" class="btn btn-primary">Proceed to Checkout</button>
         </div>
     </div>
 
@@ -549,7 +568,7 @@
         </div>
     </section>
 <!-- Virtual Ayurvedic Consultation Section -->
-<section id="virtual-consultation" class="virtual-consultation-section py-5">
+<!-- <section id="virtual-consultation" class="virtual-consultation-section py-5">
     <div class="container">
         <h2 class="section-title text-center mb-5" data-aos="fade-up">Schedule a Virtual Ayurvedic Consultation</h2>
         <div class="row justify-content-center">
@@ -576,7 +595,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
     <!-- Contact Section -->
     <section id="contact" class="contact-section py-5 bg-light">
         <div class="container">
@@ -662,6 +681,15 @@
             </div>
         </div>
     </footer> 
+
+    <div class="mobile-menu-overlay">
+        <div class="mobile-menu-content">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#products">Products</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
     <!-- Scroll to Top Button -->
     <button id="scrollToTopBtn" class="scroll-to-top" aria-label="Scroll to top">
         <i class="fas fa-arrow-up"></i>
@@ -679,40 +707,64 @@
     <!-- Custom JS -->
     <script src="/js/script.js"></script>
     <!-- Login Modal -->
-<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="loginModalLabel">Login to 5 ELM</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form id="loginForm">
-            <div class="mb-3">
-              <label for="loginEmail" class="form-label">Email address</label>
-              <input type="email" class="form-control" id="loginEmail" required>
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="loginModalLabel">Login to 5 ELM</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="mb-3">
-              <label for="loginPassword" class="form-label">Password</label>
-              <input type="password" class="form-control" id="loginPassword" required>
+            <div class="modal-body">
+              <div class="login-welcome">
+                <i class="fas fa-user-circle"></i>
+                <p>Welcome back! Please login to your account.</p>
+              </div>
+              <form id="loginForm">
+                <div class="mb-3 form-floating">
+                  <input type="email" class="form-control" id="loginEmail" placeholder="name@example.com" required>
+                  <label for="loginEmail">Email address</label>
+                </div>
+                <div class="mb-3 form-floating">
+                  <input type="password" class="form-control" id="loginPassword" placeholder="Password" required>
+                  <label for="loginPassword">Password</label>
+                </div>
+                <div class="mb-3 form-check">
+                  <input type="checkbox" class="form-check-input" id="rememberMe">
+                  <label class="form-check-label" for="rememberMe">Remember me</label>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Login</button>
+              </form>
+              <div class="text-center mt-3">
+                <a href="#" class="text-decoration-none forgot-password">Forgot password?</a>
+              </div>
+              <div class="login-divider">
+                <span>or login with</span>
+              </div>
+              <div class="social-login">
+                <button class="btn btn-outline-secondary"><i class="fab fa-google"></i> Google</button>
+                <button class="btn btn-outline-secondary"><i class="fab fa-facebook-f"></i> Facebook</button>
+              </div>
+              <div class="text-center mt-3">
+                <p class="mb-0">Don't have an account?</p>
+                <a href="#" class="btn btn-link">Sign Up</a>
+              </div>
             </div>
-            <div class="mb-3 form-check">
-              <input type="checkbox" class="form-check-input" id="rememberMe">
-              <label class="form-check-label" for="rememberMe">Remember me</label>
-            </div>
-            <button type="submit" class="btn btn-primary w-100">Login</button>
-          </form>
-          <div class="text-center mt-3">
-            <a href="#" class="text-decoration-none">Forgot password?</a>
-          </div>
-          <hr>
-          <div class="text-center">
-            <p class="mb-0">Don't have an account?</p>
-            <a href="#" class="btn btn-outline-secondary mt-2">Sign Up</a>
           </div>
         </div>
       </div>
+
+      <div id="cartPanel" class="cart-panel">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button id="closeCart" class="close-cart">&times;</button>
+        </div>
+        <div id="cartItems" class="cart-items">
+            <!-- Cart items will be dynamically added here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">Total: <span id="cartTotal">$0.00</span></div>
+            <button id="checkoutBtn">Proceed to Checkout</button>
+        </div>
     </div>
-  </div>
 </body>
 </html>

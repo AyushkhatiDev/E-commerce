@@ -1,47 +1,59 @@
+:root {
+    --primary-green: #4CAF50;
+    --light-green: #8BC34A;
+    --white: #ffffff;
+    --light-gray: #f9f9f9;
+    --dark-gray: #333;
+    --medium-gray: #666;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 /* Virtual Consultation Scheduler Styles */
 .virtual-consultation-section {
-    background-color: #f9f9f9;
+    background-color: var(--light-gray);
     padding: 60px 0;
     position: relative;
     overflow: hidden;
 }
 
-.virtual-consultation-section::before {
+.virtual-consultation-section::before,
+.virtual-consultation-section::after {
     content: '';
     position: absolute;
+    background-color: rgba(76, 175, 80, 0.1);
+    border-radius: 50%;
+    animation: float 10s infinite ease-in-out;
+}
+
+.virtual-consultation-section::before {
     top: -50px;
     left: -50px;
     width: 100px;
     height: 100px;
-    background-color: rgba(76, 175, 80, 0.1);
-    border-radius: 50%;
-    animation: float 6s infinite ease-in-out;
 }
 
 .virtual-consultation-section::after {
-    content: '';
-    position: absolute;
     bottom: -30px;
     right: -30px;
     width: 60px;
     height: 60px;
-    background-color: rgba(76, 175, 80, 0.1);
-    border-radius: 50%;
-    animation: float 4s infinite ease-in-out;
+    animation-delay: -5s;
 }
 
 @keyframes float {
-    0% { transform: translate(0, 0); }
-    50% { transform: translate(15px, -15px); }
-    100% { transform: translate(0, 0); }
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(15px, -15px) rotate(5deg); }
+    50% { transform: translate(0, -25px) rotate(0deg); }
+    75% { transform: translate(-15px, -15px) rotate(-5deg); }
 }
 
 .consultation-scheduler {
-    background-color: #ffffff;
+    background-color: var(--white);
     border-radius: 8px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     padding: 30px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: var(--transition);
+    transform: translateY(0);
 }
 
 .consultation-scheduler:hover {
@@ -58,25 +70,25 @@
     border: 2px solid #ddd;
     border-radius: 4px;
     padding: 12px;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    transition: var(--transition);
 }
 
 .consultation-scheduler .form-control:focus {
-    border-color: #4CAF50;
+    border-color: var(--primary-green);
     box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
 }
 
 .consultation-scheduler button[type="submit"] {
-    background-color: #4CAF50;
+    background-color: var(--primary-green);
     border: none;
-    color: white;
+    color: var(--white);
     padding: 12px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
     margin: 4px 2px;
-    transition: all 0.3s ease;
+    transition: var(--transition);
     cursor: pointer;
     border-radius: 4px;
     position: relative;
@@ -91,7 +103,7 @@
     width: 100%;
     height: 100%;
     background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    transition: all 0.6s;
+    transition: var(--transition);
 }
 
 .consultation-scheduler button[type="submit"]:hover::before {
@@ -108,6 +120,7 @@
     background-color: #f0f8f0;
     padding: 60px 0;
     position: relative;
+    overflow: hidden;
 }
 
 .sustainability-section::before {
@@ -117,13 +130,14 @@
     left: 0;
     right: 0;
     height: 5px;
-    background: linear-gradient(90deg, #4CAF50, #8BC34A, #4CAF50);
+    background: linear-gradient(90deg, var(--primary-green), var(--light-green), var(--primary-green));
+    background-size: 200% 100%;
     animation: gradientFlow 5s linear infinite;
 }
 
 @keyframes gradientFlow {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 100% 50%; }
+    0% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .sustainability-grid {
@@ -133,14 +147,16 @@
 }
 
 .sustainability-item {
-    background-color: #ffffff;
+    background-color: var(--white);
     border-radius: 8px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     padding: 30px;
     text-align: center;
-    transition: all 0.3s ease;
+    transition: var(--transition);
     position: relative;
     overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
 }
 
 .sustainability-item::before {
@@ -150,11 +166,11 @@
     left: -2px;
     right: -2px;
     bottom: -2px;
-    background: linear-gradient(45deg, #4CAF50, #8BC34A);
+    background: linear-gradient(45deg, var(--primary-green), var(--light-green));
     z-index: -1;
     filter: blur(10px);
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: var(--transition);
 }
 
 .sustainability-item:hover {
@@ -168,9 +184,9 @@
 
 .sustainability-item i {
     font-size: 48px;
-    color: #4CAF50;
+    color: var(--primary-green);
     margin-bottom: 20px;
-    transition: transform 0.3s ease;
+    transition: var(--transition);
 }
 
 .sustainability-item:hover i {
@@ -180,21 +196,21 @@
 .sustainability-item h3 {
     font-size: 24px;
     margin-bottom: 15px;
-    color: #333;
+    color: var(--dark-gray);
 }
 
 .sustainability-item p {
     font-size: 16px;
-    color: #666;
+    color: var(--medium-gray);
     line-height: 1.6;
 }
 
 .percentage {
     font-size: 36px;
     font-weight: bold;
-    color: #4CAF50;
+    color: var(--primary-green);
     display: inline-block;
-    transition: all 0.3s ease;
+    transition: var(--transition);
 }
 
 .sustainability-item:hover .percentage {
@@ -213,15 +229,31 @@
     }
 }
 
-.sustainability-item {
-    animation: fadeInUp 0.6s ease-out;
-    animation-fill-mode: both;
-}
+.sustainability-item:nth-child(1) { animation: fadeInUp 0.6s ease-out 0.2s forwards; }
+.sustainability-item:nth-child(2) { animation: fadeInUp 0.6s ease-out 0.4s forwards; }
+.sustainability-item:nth-child(3) { animation: fadeInUp 0.6s ease-out 0.6s forwards; }
 
-.sustainability-item:nth-child(2) {
-    animation-delay: 0.2s;
-}
+/* Accessibility: Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+    .virtual-consultation-section::before,
+    .virtual-consultation-section::after,
+    .sustainability-section::before,
+    .consultation-scheduler,
+    .consultation-scheduler button[type="submit"]::before,
+    .sustainability-item,
+    .sustainability-item i,
+    .percentage {
+        animation: none;
+        transition: none;
+    }
 
-.sustainability-item:nth-child(3) {
-    animation-delay: 0.4s;
+    .sustainability-item {
+        opacity: 1;
+        transform: none;
+    }
+
+    .consultation-scheduler:hover,
+    .sustainability-item:hover {
+        transform: none;
+    }
 }

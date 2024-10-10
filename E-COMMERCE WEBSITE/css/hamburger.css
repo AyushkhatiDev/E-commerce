@@ -1,103 +1,188 @@
+:root {
+  --hamburger-color: #333;
+  --hamburger-active-color: #3498db;
+  --hamburger-bg: transparent;
+  --hamburger-hover-bg: rgba(0, 0, 0, 0.05);
+  --hamburger-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
 .hamburger {
-    padding: 15px;
-    display: inline-block;
-    cursor: pointer;
-    transition-property: opacity, filter;
-    transition-duration: 0.15s;
-    transition-timing-function: linear;
-    font: inherit;
-    color: inherit;
-    text-transform: none;
-    background-color: transparent;
-    border: 0;
-    margin: 0;
-    overflow: visible;
+  display: none;
+  cursor: pointer;
+  transition: var(--hamburger-transition);
+  border: none;
+  background-color: var(--hamburger-bg);
+  padding: 15px;
+  border-radius: 5px;
+}
+
+@media (max-width: 991px) {
+  .hamburger {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 30px;
+      height: 25px;
+      position: relative;
+      z-index: 1000;
   }
-  
-  .hamburger:hover {
-    opacity: 0.7;
+}
+
+.hamburger:hover {
+  background-color: var(--hamburger-hover-bg);
+}
+
+.hamburger:focus {
+  outline: none;
+}
+
+.hamburger-box {
+  width: 30px;
+  height: 24px;
+  display: inline-block;
+  position: relative;
+}
+
+.hamburger-inner {
+  display: block;
+  top: 50%;
+  margin-top: -2px;
+}
+
+.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+  width: 30px;
+  height: 3px;
+  background-color: var(--hamburger-color);
+  border-radius: 4px;
+  position: absolute;
+  transition: var(--hamburger-transition);
+}
+
+.hamburger-inner::before, .hamburger-inner::after {
+  content: "";
+  display: block;
+}
+
+.hamburger-inner::before {
+  top: -10px;
+}
+
+.hamburger-inner::after {
+  bottom: -10px;
+}
+
+/* Hamburger Animation */
+.hamburger.is-active .hamburger-inner {
+  transform: rotate(45deg);
+  background-color: var(--hamburger-active-color);
+}
+
+.hamburger.is-active .hamburger-inner::before {
+  top: 0;
+  opacity: 0;
+  transform: rotate(-45deg);
+}
+
+.hamburger.is-active .hamburger-inner::after {
+  bottom: 0;
+  transform: rotate(-90deg);
+  background-color: var(--hamburger-active-color);
+}
+
+/* Ripple effect */
+.hamburger::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, var(--hamburger-active-color) 10%, transparent 10.01%);
+  transform: scale(0);
+  opacity: 0;
+  transition: transform 0.3s, opacity 0.5s;
+}
+
+.hamburger:active::after {
+  transform: scale(10);
+  opacity: 0.3;
+  transition: 0s;
+}
+
+/* Hover effect */
+@media (hover: hover) {
+  .hamburger:hover .hamburger-inner,
+  .hamburger:hover .hamburger-inner::before,
+  .hamburger:hover .hamburger-inner::after {
+      background-color: var(--hamburger-active-color);
   }
-  
-  .hamburger.is-active:hover {
-    opacity: 0.7;
-  }
-  
-  .hamburger.is-active .hamburger-inner,
-  .hamburger.is-active .hamburger-inner::before,
-  .hamburger.is-active .hamburger-inner::after {
-    background-color: #000;
-  }
-  
-  .hamburger-box {
-    width: 40px;
-    height: 24px;
-    display: inline-block;
-    position: relative;
-  }
-  
-  .hamburger-inner {
-    display: block;
-    top: 50%;
-    margin-top: -2px;
-  }
-  
-  .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
-    width: 40px;
-    height: 4px;
-    background-color: #000;
-    border-radius: 4px;
-    position: absolute;
-    transition-property: transform;
-    transition-duration: 0.15s;
-    transition-timing-function: ease;
-  }
-  
-  .hamburger-inner::before, .hamburger-inner::after {
-    content: "";
-    display: block;
-  }
-  
-  .hamburger-inner::before {
-    top: -10px;
-  }
-  
-  .hamburger-inner::after {
-    bottom: -10px;
-  }
-  
-  .hamburger--spin .hamburger-inner {
-    transition-duration: 0.22s;
-    transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
-  }
-  
-  .hamburger--spin .hamburger-inner::before {
-    transition: top 0.1s 0.25s ease-in, opacity 0.1s ease-in;
-  }
-  
-  .hamburger--spin .hamburger-inner::after {
-    transition: bottom 0.1s 0.25s ease-in, transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
-  }
-  
-  .hamburger--spin.is-active .hamburger-inner {
-    transform: rotate(225deg);
-    transition-delay: 0.12s;
-    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-  }
-  
-  .hamburger--spin.is-active .hamburger-inner::before {
-    top: 0;
-    opacity: 0;
-    transition: top 0.1s ease-out, opacity 0.1s 0.12s ease-out;
-  }
-  
-  .hamburger--spin.is-active .hamburger-inner::after {
-    bottom: 0;
-    transform: rotate(-90deg);
-    transition: bottom 0.1s ease-out, transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+/* Mobile menu overlay */
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s, height 0s 0.3s;
+  z-index: 999;
+}
+
+.mobile-menu-overlay.is-active {
+  height: 100%;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s, visibility 0.3s, height 0s;
+}
+
+/* Mobile menu content */
+.mobile-menu-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.mobile-menu-content a {
+  display: block;
+  font-size: 24px;
+  margin: 20px 0;
+  color: white;
+  text-decoration: none;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.mobile-menu-overlay.is-active .mobile-menu-content a {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger the animation of menu items */
+.mobile-menu-content a:nth-child(1) { transition-delay: 0.1s; }
+.mobile-menu-content a:nth-child(2) { transition-delay: 0.2s; }
+.mobile-menu-content a:nth-child(3) { transition-delay: 0.3s; }
+.mobile-menu-content a:nth-child(4) { transition-delay: 0.4s; }
+
+/* Accessibility: Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .hamburger,
+  .hamburger-inner,
+  .hamburger-inner::before,
+  .hamburger-inner::after,
+  .hamburger::after,
+  .mobile-menu-overlay,
+  .mobile-menu-content a {
+      transition: none;
+      animation: none;
   }
 
-  @media (min-width: 992px) {
-    .hamburger {
-      display: none;
-    }
+  .mobile-menu-content a {
+      opacity: 1;
+      transform: none;
   }
+}

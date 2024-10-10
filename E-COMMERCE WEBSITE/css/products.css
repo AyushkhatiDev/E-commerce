@@ -5,16 +5,17 @@
     --cream: #F4F4F4;
     --deep-brown: #3D2B1F;
     --light-sage: #D1E2C4;
+    --white: #FFFFFF;
 }
 
-.featured-section {
+.featured-section, .products-section {
     background-color: var(--cream);
     padding: 80px 0;
     position: relative;
     overflow: hidden;
 }
 
-.featured-section::before {
+.featured-section::before, .products-section::before {
     content: "";
     position: absolute;
     top: 0;
@@ -57,7 +58,7 @@
 }
 
 .product-card:hover {
-    transform: translateY(-10px) scale(1.02);
+    transform: translateY(-10px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
@@ -86,33 +87,6 @@
     font-weight: bold;
     text-transform: uppercase;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-
-.product-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0,0,0,0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-}
-
-.product-card:hover .product-overlay {
-    opacity: 1;
-}
-
-.quick-view {
-    transform: translateY(20px);
-    transition: all 0.3s ease-in-out;
-}
-
-.product-card:hover .quick-view {
-    transform: translateY(0);
 }
 
 .product-info {
@@ -187,86 +161,23 @@
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
-
-.product-card {
-    animation: float 6s ease-in-out infinite;
-}
-
 @media (max-width: 768px) {
     .product-card {
         margin-bottom: 30px;
     }
 }
 
-/* Add a natural, leafy decoration */
-.featured-section::after {
-    content: "";
-    position: absolute;
-    bottom: -50px;
-    right: -50px;
-    width: 200px;
-    height: 200px;
-    background: url('path/to/ayurvedic-leaf.png') no-repeat;
-    background-size: contain;
-    opacity: 0.1;
-    z-index: 0;
-    animation: sway 10s ease-in-out infinite;
-}
-
-@keyframes sway {
-    0%, 100% { transform: rotate(0deg); }
-    50% { transform: rotate(5deg); }
-}
-
-.modal-content {
-    border-radius: 15px;
-    overflow: hidden;
-}
-
-.modal-header {
-    background-color: var(--pale-gold);
-    color: white;
-}
-
-.modal-body {
-    padding: 30px;
-}
-
-#modalProductTitle {
-    color: var(--deep-brown);
-    margin-bottom: 10px;
-}
-
-#modalProductPrice {
-    font-size: 1.5rem;
+/* Styles for "View All Products" button */
+.btn-outline-primary {
     color: var(--chestnut);
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-#modalProductRating {
-    color: var(--pale-gold);
-    margin-bottom: 15px;
-}
-
-#modalProductDescription {
-    color: var(--deep-brown);
-    margin-bottom: 20px;
-}
-
-#modalAddToCart {
-    background-color: var(--sage);
-    border: none;
-    padding: 10px 20px;
+    border-color: var(--chestnut);
     transition: all 0.3s ease;
 }
 
-#modalAddToCart:hover {
+.btn-outline-primary:hover {
     background-color: var(--chestnut);
+    color: white;
     transform: translateY(-3px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 15px rgba(149, 69, 53, 0.4);
 }
+

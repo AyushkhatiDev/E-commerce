@@ -1,132 +1,17 @@
-.featured-section {
-    background-color: var(--pale-silver);
-    padding: 80px 0;
-}
-
-.product-card {
-    background-color: var(--white);
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
-
-.product-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-}
-
-.product-image {
-    position: relative;
-    overflow: hidden;
-}
-
-.product-image img {
-    transition: transform 0.5s ease;
-}
-
-.product-card:hover .product-image img {
-    transform: scale(1.1);
-}
-
-.product-tag {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background-color: var(--chestnut);
-    color: var(--white);
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 0.8rem;
-    font-weight: bold;
-}
-
-.product-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(59, 60, 54, 0.7);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.product-card:hover .product-overlay {
-    opacity: 1;
-}
-
-.quick-view {
-    transform: translateY(20px);
-    transition: all 0.3s ease;
-}
-
-.product-card:hover .quick-view {
-    transform: translateY(0);
-}
-
-.product-info {
-    padding: 20px;
-}
-
-.product-title {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: var(--black-olive);
-}
-
-.product-rating {
-    color: #ffc107;
-    margin-bottom: 10px;
-}
-
-.product-rating span {
-    color: var(--ebony);
-    margin-left: 5px;
-}
-
-.product-price {
-    font-size: 1.3rem;
-    font-weight: bold;
-    color: var(--chestnut);
-    margin-bottom: 15px;
-}
-
-.buy-now-btn {
-    width: 100%;
-    background-color: var(--chestnut);
-    border: none;
-    transition: all 0.3s ease;
-}
-
-.buy-now-btn:hover {
-    background-color: var(--ebony);
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-.product-card:hover .buy-now-btn {
-    animation: pulse 1s infinite;
+:root {
+    --chestnut: #954535;
+    --ebony: #555D50;
+    --black-olive: #3B3C36;
+    --pale-silver: #C9C0BB;
+    --white: #FFFFFF;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .features-showcase {
     background-color: var(--pale-silver);
     position: relative;
     overflow: hidden;
+    padding: 80px 0;
 }
 
 .features-showcase::before,
@@ -138,16 +23,23 @@
     border-radius: 50%;
     background-color: rgba(149, 69, 53, 0.1);
     z-index: 0;
+    animation: float 15s infinite alternate ease-in-out;
 }
 
 .features-showcase::before {
     top: -150px;
     left: -150px;
+    animation-delay: -7s;
 }
 
 .features-showcase::after {
     bottom: -150px;
     right: -150px;
+}
+
+@keyframes float {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    100% { transform: translate(30px, 30px) rotate(60deg); }
 }
 
 .features-grid {
@@ -164,9 +56,10 @@
     padding: 30px;
     text-align: center;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    transition: var(--transition);
     position: relative;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .feature-card::before {
@@ -178,17 +71,21 @@
     bottom: 0;
     background: linear-gradient(135deg, var(--chestnut), var(--ebony));
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: var(--transition);
     z-index: -1;
 }
 
 .feature-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-10px) scale(1.03);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
 }
 
 .feature-card:hover::before {
     opacity: 1;
+}
+
+.feature-card * {
+    transition: var(--transition);
 }
 
 .feature-card:hover * {
@@ -199,33 +96,45 @@
     font-size: 3rem;
     color: var(--chestnut);
     margin-bottom: 20px;
-    transition: all 0.3s ease;
+    transition: var(--transition);
 }
 
 .feature-card:hover .feature-icon {
-    transform: scale(1.2);
+    transform: scale(1.2) rotate(10deg);
 }
 
 .feature-card h3 {
     font-size: 1.5rem;
     margin-bottom: 15px;
     color: var(--black-olive);
-    transition: color 0.3s ease;
 }
 
 .feature-card p {
     color: var(--ebony);
-    transition: color 0.3s ease;
+}
+
+.feature-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transform: scale(0.5);
+    transition: var(--transition);
+}
+
+.feature-card:hover::after {
+    opacity: 0.2;
+    transform: scale(1);
 }
 
 @media (max-width: 768px) {
     .features-grid {
         grid-template-columns: 1fr;
     }
-}
-
-:root {
-    --chestnut: #954535;
 }
 
 .chestnut-icon {
@@ -236,9 +145,65 @@
     display: flex;
     align-items: center;
     margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: var(--transition);
 }
 
 .feature-item i {
     font-size: 1.5rem;
     margin-right: 1rem;
+}
+
+/* Animation for feature items */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.feature-item:nth-child(1) { animation: fadeInUp 0.6s 0.1s forwards; }
+.feature-item:nth-child(2) { animation: fadeInUp 0.6s 0.2s forwards; }
+.feature-item:nth-child(3) { animation: fadeInUp 0.6s 0.3s forwards; }
+.feature-item:nth-child(4) { animation: fadeInUp 0.6s 0.4s forwards; }
+
+/* Add a pulsating effect to feature icons */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.feature-card:hover .feature-icon {
+    animation: pulse 1.5s infinite;
+}
+
+/* Add a subtle text animation on hover */
+@keyframes textGlow {
+    0% { text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); }
+    50% { text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.5); }
+    100% { text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); }
+}
+
+.feature-card:hover h3 {
+    animation: textGlow 2s infinite;
+}
+
+/* Accessibility: Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+    .features-showcase::before,
+    .features-showcase::after,
+    .feature-card,
+    .feature-card::before,
+    .feature-card::after,
+    .feature-icon,
+    .feature-item {
+        animation: none;
+        transition: none;
+    }
+
+    .feature-card:hover {
+        transform: none;
+    }
 }

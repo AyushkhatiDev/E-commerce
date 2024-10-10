@@ -1,43 +1,111 @@
-.footer {
-    background-color: var(--ebony);
-    color: var(--pale-silver);
-    padding: 60px 0 30px;
+:root {
+    --dark-bg: #2c3e50;
+    --light-text: #ecf0f1;
+    --accent-color: #3498db;
+    --hover-color: #2980b9;
+    --footer-link-color: #bdc3c7;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.footer {
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    padding: 60px 0 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-color), var(--hover-color), var(--accent-color));
+    background-size: 200% 100%;
+    animation: gradientFlow 5s linear infinite;
+}
+
+@keyframes gradientFlow {
+    0% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.footer-section:nth-child(1) { animation-delay: 0.1s; }
+.footer-section:nth-child(2) { animation-delay: 0.2s; }
+.footer-section:nth-child(3) { animation-delay: 0.3s; }
+.footer-section:nth-child(4) { animation-delay: 0.4s; }
+
 .footer-heading {
-    color: var(--white);
     font-size: 1.2rem;
-    font-weight: 600;
     margin-bottom: 20px;
     position: relative;
-    display: inline-block;
+    padding-bottom: 10px;
 }
 
 .footer-heading::after {
     content: '';
     position: absolute;
     left: 0;
-    bottom: -5px;
+    bottom: 0;
     width: 30px;
     height: 2px;
-    background-color: var(--chestnut);
-    transition: width 0.3s ease;
+    background-color: var(--accent-color);
+    transition: var(--transition);
 }
 
-.footer-heading:hover::after {
-    width: 100%;
+.footer-section:hover .footer-heading::after {
+    width: 50px;
 }
 
 .footer-link {
-    color: var(--pale-silver);
+    color: var(--footer-link-color);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: var(--transition);
     display: block;
     margin-bottom: 10px;
+    position: relative;
+}
+
+.footer-link::before {
+    content: '→';
+    position: absolute;
+    left: -20px;
+    opacity: 0;
+    transition: var(--transition);
 }
 
 .footer-link:hover {
-    color: var(--white);
+    color: var(--light-text);
+    transform: translateX(20px);
+}
+
+.footer-link:hover::before {
+    opacity: 1;
+    left: 0;
 }
 
 .social-icons {
@@ -46,13 +114,14 @@
 }
 
 .social-icons a {
-    color: var(--pale-silver);
+    color: var(--footer-link-color);
     font-size: 1.2rem;
-    transition: color 0.3s ease;
+    transition: var(--transition);
 }
 
 .social-icons a:hover {
-    color: var(--chestnut);
+    color: var(--accent-color);
+    transform: translateY(-3px);
 }
 
 .newsletter-form {
@@ -65,59 +134,103 @@
     padding: 10px;
     border: none;
     border-radius: 4px 0 0 4px;
+    outline: none;
 }
 
 .newsletter-button {
-    background-color: var(--chestnut);
-    color: var(--white);
+    background-color: var(--accent-color);
+    color: var(--light-text);
     border: none;
     padding: 10px 20px;
     border-radius: 0 4px 4px 0;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: var(--transition);
 }
 
 .newsletter-button:hover {
-    background-color: var(--black-olive);
+    background-color: var(--hover-color);
 }
 
 .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 20px;
-    margin-top: 40px;
     text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     font-size: 0.9rem;
 }
 
-@media (max-width: 767px) {
-    .footer-column {
-        margin-bottom: 30px;
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .footer-section {
+        width: 100%;
     }
 }
 
-#scrollToTopBtn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 99;
-    border: none;
-    outline: none;
-    background-color: rgba(149, 69, 53, 0.7);  /* Using your chestnut color with some transparency */
-    color: white;
-    cursor: pointer;
-    padding: 15px;
-    border-radius: 50%;
-    font-size: 18px;
-    transition: opacity 0.3s, visibility 0.3s, background-color 0.3s;
+/* Fancy hover effect for social icons */
+.social-icons a {
+    position: relative;
+    overflow: hidden;
+}
+
+.social-icons a::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: var(--accent-color);
     opacity: 0;
-    visibility: hidden;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    transition: var(--transition);
 }
 
-#scrollToTopBtn:hover {
-    background-color: rgba(149, 69, 53, 1);  /* Solid color on hover */
+.social-icons a:hover::after {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(20);
 }
 
-#scrollToTopBtn.visible {
-    opacity: 1;
-    visibility: visible;
+/* Animated background for newsletter form */
+.newsletter-form {
+    position: relative;
+    overflow: hidden;
+}
+
+.newsletter-form::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 0deg, var(--dark-bg), var(--accent-color), var(--dark-bg));
+    animation: rotate 4s linear infinite;
+    opacity: 0.1;
+}
+
+@keyframes rotate {
+    100% { transform: rotate(360deg); }
+}
+
+/* Accessibility: Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+    .footer::before,
+    .footer-section,
+    .footer-link,
+    .social-icons a,
+    .newsletter-button,
+    .social-icons a::after,
+    .newsletter-form::before {
+        animation: none;
+        transition: none;
+    }
+
+    .footer-section {
+        opacity: 1;
+        transform: none;
+    }
 }

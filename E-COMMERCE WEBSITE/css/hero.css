@@ -1,3 +1,10 @@
+:root {
+    --chestnut: #954535;
+    --ebony: #555D50;
+    --white: #FFFFFF;
+    --transition: all 0.3s ease;
+}
+
 .hero-section {
     background-image: url('/images/8.png/8..jpg');
     background-size: cover;
@@ -43,21 +50,6 @@
     }
 }
 
-@keyframes slideUp {
-    0% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-}
-
-.animate-slide.slide-up {
-    animation: slideUp 1.5s ease forwards;
-}
-
 .hero-subtitle {
     font-size: 1.5rem;
     margin-bottom: 30px;
@@ -76,7 +68,7 @@
     font-weight: 600;
     text-transform: uppercase;
     border-radius: 30px;
-    transition: all 0.3s ease;
+    transition: var(--transition);
     text-decoration: none;
     display: inline-block;
 }
@@ -87,23 +79,25 @@
     border: 2px solid var(--chestnut);
 }
 
-.primary-button:hover {
+.primary-button:hover,
+.primary-button:focus {
     background-color: var(--ebony);
     border-color: var(--ebony);
+    color: var(--white);
     transform: translateY(-3px);
     box-shadow: 0 4px 15px rgba(149, 69, 53, 0.4);
 }
 
 .secondary-button {
-    background-color: var(--white);
-    color: var(--chestnut);
+    background-color: transparent;
+    color: var(--white);
     border: 2px solid var(--white);
 }
 
-.secondary-button:hover {
-    background-color: var(--chestnut);
-    color: var(--white);
-    border-color: var(--chestnut);
+.secondary-button:hover,
+.secondary-button:focus {
+    background-color: var(--white);
+    color: var(--chestnut);
     transform: translateY(-3px);
     box-shadow: 0 4px 15px rgba(255, 255, 255, 0.4);
 }

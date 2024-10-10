@@ -1,170 +1,267 @@
-/* Login Modal Styles */
+:root {
+    --ebony: #555D50;
+    --chestnut: #954535;
+    --pale-silver: #C9C0BB;
+    --white: #FFFFFF;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 #loginModal .modal-content {
-    border-radius: 20px;
     border: none;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
     overflow: hidden;
-    background: linear-gradient(135deg, var(--white) 0%, var(--pale-silver) 100%);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    animation: modalFadeIn 0.5s ease-out;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 #loginModal .modal-header {
+    background-color: var(--ebony);
+    color: var(--white);
     border-bottom: none;
-    padding: 30px 30px 0;
-    position: relative;
+    padding: 20px 30px;
 }
 
 #loginModal .modal-title {
-    font-weight: bold;
-    color: var(--black-olive);
-    font-size: 1.8rem;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
+    animation: titleSlideIn 0.5s ease-out 0.2s both;
+}
+
+@keyframes titleSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 #loginModal .modal-body {
     padding: 30px;
 }
 
-#loginModal .form-label {
-    font-weight: 600;
-    color: var(--ebony);
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    letter-spacing: 0.5px;
-    margin-bottom: 0.5rem;
+#loginModal .login-welcome {
+    text-align: center;
+    margin-bottom: 20px;
+    animation: welcomeFadeIn 0.5s ease-out 0.4s both;
+}
+
+@keyframes welcomeFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+#loginModal .login-welcome i {
+    font-size: 48px;
+    color: var(--chestnut);
+    margin-bottom: 10px;
+    animation: iconPulse 2s infinite;
+}
+
+@keyframes iconPulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+#loginModal .form-floating {
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: formItemFadeIn 0.5s ease-out forwards;
+}
+
+#loginModal .form-floating:nth-child(1) {
+    animation-delay: 0.6s;
+}
+
+#loginModal .form-floating:nth-child(2) {
+    animation-delay: 0.8s;
+}
+
+@keyframes formItemFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 #loginModal .form-control {
-    border-radius: 10px;
+    border-radius: 8px;
     border: 2px solid var(--pale-silver);
-    padding: 12px 15px;
-    transition: all 0.3s ease;
-    background-color: rgba(255, 255, 255, 0.8);
+    transition: var(--transition);
 }
 
 #loginModal .form-control:focus {
     border-color: var(--chestnut);
     box-shadow: 0 0 0 0.2rem rgba(149, 69, 53, 0.25);
-    transform: translateY(-2px);
 }
 
 #loginModal .btn-primary {
-    background: linear-gradient(45deg, var(--chestnut), var(--ebony));
-    border: none;
-    border-radius: 10px;
-    padding: 12px 20px;
+    background-color: var(--chestnut);
+    border-color: var(--chestnut);
+    border-radius: 8px;
+    padding: 12px;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-#loginModal .btn-primary:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    transition: all 0.6s ease;
-}
-
-#loginModal .btn-primary:hover:before {
-    left: 100%;
+    transition: var(--transition);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: formItemFadeIn 0.5s ease-out 1s forwards;
 }
 
 #loginModal .btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(149, 69, 53, 0.4);
-}
-
-#loginModal .btn-outline-secondary {
-    border: 2px solid var(--ebony);
-    color: var(--ebony);
-    border-radius: 10px;
-    padding: 10px 20px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-}
-
-#loginModal .btn-outline-secondary:hover {
     background-color: var(--ebony);
-    color: var(--white);
+    border-color: var(--ebony);
     transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(85, 93, 80, 0.3);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-#loginModal .form-check-input {
-    border-color: var(--chestnut);
-}
-
-#loginModal .form-check-input:checked {
-    background-color: var(--chestnut);
-    border-color: var(--chestnut);
-}
-
-#loginModal a {
+#loginModal .forgot-password {
     color: var(--chestnut);
-    transition: all 0.3s ease;
+    font-weight: 600;
+    transition: var(--transition);
+    opacity: 0;
+    animation: formItemFadeIn 0.5s ease-out 1.2s forwards;
 }
 
-#loginModal a:hover {
+#loginModal .forgot-password:hover {
     color: var(--ebony);
     text-decoration: underline;
 }
 
-/* Animation classes */
-.fade-in-up {
+#loginModal .login-divider {
+    text-align: center;
+    margin: 20px 0;
+    position: relative;
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    animation: formItemFadeIn 0.5s ease-out 1.4s forwards;
 }
 
-.fade-in-up.active {
-    opacity: 1;
-    transform: translateY(0);
+#loginModal .login-divider::before,
+#loginModal .login-divider::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background-color: var(--pale-silver);
+    transition: var(--transition);
+}
+
+#loginModal .login-divider::before {
+    left: 0;
+}
+
+#loginModal .login-divider::after {
+    right: 0;
+}
+
+#loginModal .login-divider:hover::before,
+#loginModal .login-divider:hover::after {
+    width: 42%;
+}
+
+#loginModal .login-divider span {
+    background-color: var(--white);
+    padding: 0 10px;
+    position: relative;
+    z-index: 1;
+}
+
+#loginModal .social-login {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: formItemFadeIn 0.5s ease-out 1.6s forwards;
+}
+
+#loginModal .social-login .btn {
+    flex: 1;
+    margin: 0 5px;
+    border-radius: 8px;
+    padding: 10px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+#loginModal .social-login .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#loginModal .signup-link {
+    text-align: center;
+    opacity: 0;
+    animation: formItemFadeIn 0.5s ease-out 1.8s forwards;
+}
+
+#loginModal .signup-link a {
+    color: var(--chestnut);
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+#loginModal .signup-link a:hover {
+    color: var(--ebony);
+    text-decoration: underline;
 }
 
 @media (max-width: 576px) {
     #loginModal .modal-dialog {
-        margin: 1rem;
+        margin: 10px;
     }
     
-    #loginModal .modal-title {
-        font-size: 1.5rem;
+    #loginModal .social-login {
+        flex-direction: column;
+    }
+    
+    #loginModal .social-login .btn {
+        margin: 5px 0;
     }
 }
 
-/* Notification styles */
-.notification {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    padding: 15px 25px;
-    border-radius: 10px;
-    color: white;
-    font-weight: 600;
-    opacity: 0;
-    transform: translateY(-20px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    z-index: 9999;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.notification.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.notification.success {
-    background-color: #28a745;
-}
-
-.notification.error {
-    background-color: #dc3545;
+/* Accessibility: Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+    #loginModal .modal-content,
+    #loginModal .modal-title,
+    #loginModal .login-welcome,
+    #loginModal .login-welcome i,
+    #loginModal .form-floating,
+    #loginModal .btn-primary,
+    #loginModal .forgot-password,
+    #loginModal .login-divider,
+    #loginModal .social-login,
+    #loginModal .signup-link {
+        animation: none;
+        transition: none;
+    }
 }
